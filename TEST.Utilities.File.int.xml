@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+<Routine name="TEST.Utilities.File" type="INT" languagemode="0"><![CDATA[
+
+
+ // Returns just the directory part of a full file path
+ // @returns {String}
+FileDirectory(filePath) PUBLIC {
+	QUIT ##class(%File).GetDirectory(filePath)
+}
+
+ // Returns just the filename part of a full file path
+ // @returns {String}
+FileName(filePath) PUBLIC {
+	QUIT ##class(%File).GetFilename(filePath)
+}
+
+ // Returns just the file extension part of a full file path
+ // @returns {String}
+FileExtension(filePath) PUBLIC {
+	SET fileName=$$FileName(filePath)
+	QUIT $PIECE(fileName,".",$LENGTH(fileName,"."))
+}
+]]></Routine>
+</Export>
